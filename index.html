@@ -3,92 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>História Interativa</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .choice { margin: 10px 0; }
-        .hidden { display: none; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Em busca da cidade perdida</title>
 </head>
 <body>
-    <h1>A Aventura na Floresta</h1>
-    <p>Você está em uma floresta misteriosa. À sua frente, há um caminho que se divide em duas direções.</p>
-
-    <div id="choice1" class="choice">
-        <button onclick="choose('left')">Ir para a esquerda</button>
-        <button onclick="choose('right')">Ir para a direita</button>
-    </div>
-
-    <div id="left" class="hidden">
-        <h2>Você escolheu ir para a esquerda!</h2>
-        <p>Após caminhar por um tempo, você encontra um rio. O que você faz?</p>
-        <div class="choice">
-            <button onclick="choose('swim')">Nadar no rio</button>
-            <button onclick="choose('build')">Construir uma ponte</button>
+    <main>
+        <div class="passo ativo" id="passo-0">
+            <p>Um dia desses, dentro de um livro da biblioteca da escola, eu descobri uma carta antiga sobre uma cidade perdida, escondida por riquezas e belezas naturais. Nessa carta, a autora deixa algumas pistas para encontrar essa cidade e eu decidi segui-las!</p>
+            <button class="btn-proximo" data-proximo="1">Rio de Janeiro</button>
+            <button class="btn-proximo" data-proximo="2">Pernambuco</button>
         </div>
-    </div>
-
-    <div id="right" class="hidden">
-        <h2>Você escolheu ir para a direita!</h2>
-        <p>Você se depara com uma caverna escura. O que você faz?</p>
-        <div class="choice">
-            <button onclick="choose('enter')">Entrar na caverna</button>
-            <button onclick="choose('explore')">Explorar mais a floresta</button>
+        <div class="passo" id="passo-1">
+            <p>Você começa sua jornada no Rio de Janeiro, subindo o Pico da Tijuca ao amanhecer para encontrar a primeira pista.</p>
+            <button class="btn-proximo" data-proximo="3">Procurar a pista no topo do pico</button>
+            <button class="btn-proximo" data-proximo="4">Desistir e voltar para casa</button>
         </div>
-    </div>
-
-    <div id="swim" class="hidden">
-        <h2>Você nadou no rio!</h2>
-        <p>Você encontrou um tesouro submerso e ficou rico!</p>
-        <button onclick="reset()">Jogar Novamente</button>
-    </div>
-
-    <div id="build" class="hidden">
-        <h2>Você construiu uma ponte!</h2>
-        <p>Enquanto atravessava, a ponte desabou, e você caiu no rio.</p>
-        <button onclick="reset()">Jogar Novamente</button>
-    </div>
-
-    <div id="enter" class="hidden">
-        <h2>Você entrou na caverna!</h2>
-        <p>Dentro, você encontrou criaturas mágicas e se tornou seu novo líder!</p>
-        <button onclick="reset()">Jogar Novamente</button>
-    </div>
-
-    <div id="explore" class="hidden">
-        <h2>Você decidiu explorar mais a floresta!</h2>
-        <p>Você encontrou uma saída e voltou para casa em segurança.</p>
-        <button onclick="reset()">Jogar Novamente</button>
-    </div>
-
-    <script>
-        function choose(option) {
-            document.getElementById('choice1').classList.add('hidden');
-            document.getElementById('left').classList.add('hidden');
-            document.getElementById('right').classList.add('hidden');
-            document.getElementById('swim').classList.add('hidden');
-            document.getElementById('build').classList.add('hidden');
-            document.getElementById('enter').classList.add('hidden');
-            document.getElementById('explore').classList.add('hidden');
-
-            if (option === 'left') {
-                document.getElementById('left').classList.remove('hidden');
-            } else if (option === 'right') {
-                document.getElementById('right').classList.remove('hidden');
-            } else {
-                document.getElementById(option).classList.remove('hidden');
-            }
-        }
-
-        function reset() {
-            document.getElementById('choice1').classList.remove('hidden');
-            document.getElementById('left').classList.add('hidden');
-            document.getElementById('right').classList.add('hidden');
-            document.getElementById('swim').classList.add('hidden');
-            document.getElementById('build').classList.add('hidden');
-            document.getElementById('enter').classList.add('hidden');
-            document.getElementById('explore').classList.add('hidden');
-        }
-    </script>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
