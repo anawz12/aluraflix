@@ -61,23 +61,3 @@ button:hover {
 .passo.ativo {
     display: block;
 }
-
-/* Responsividade para dispositivos móveis */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    button {
-        width: 100%;
-        margin: 5px 0;
-    }
-}
