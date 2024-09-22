@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <title>Em busca da cidade perdida</title>
+    <title>Uma Aventura Interativa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .choice { margin: 10px 0; }
+    </style>
 </head>
 <body>
-    <main>
-        <div class="passo ativo" id="passo-0">
-            <p>Um dia desses, dentro de um livro da biblioteca da escola, eu descobri uma carta antiga sobre uma cidade perdida, escondida por riquezas e belezas naturais. Nessa carta, a autora deixa algumas pistas para encontrar essa cidade e eu decidi segui-las!</p>
-            <button class="btn-proximo" data-proximo="1">Rio de Janeiro</button>
-            <button class="btn-proximo" data-proximo="2">Pernambuco</button>
-        </div>
-        <div class="passo" id="passo-1">
-            <p>Você começa sua jornada no Rio de Janeiro, subindo o Pico da Tijuca ao amanhecer para encontrar a primeira pista.</p>
-            <button class="btn-proximo" data-proximo="3">Procurar a pista no topo do pico</button>
-            <button class="btn-proximo" data-proximo="4">Desistir e voltar para casa</button>
-        </div>
-    </main>
-    <script src="script.js"></script>
+
+    <h1>Aventura na Floresta</h1>
+    <p>Você está em uma floresta densa. O sol mal consegue iluminar o caminho à sua frente. Você ouve sons estranhos vindo de diferentes direções.</p>
+
+    <div class="choice">
+        <button onclick="path1()">Seguir o som da esquerda</button>
+        <button onclick="path2()">Seguir o som da direita</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function path1() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você seguiu o som da esquerda...</h2>
+                <p>Após alguns minutos, você se depara com um lindo lago cercado por flores coloridas. Você decide descansar e aproveitar a beleza ao seu redor.</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+
+        function path2() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você seguiu o som da direita...</h2>
+                <p>Você encontra uma caverna escura. Ao entrar, descobre um tesouro escondido! Mas, de repente, uma criatura aparece e você precisa decidir rapidamente.</p>
+                <div class="choice">
+                    <button onclick="treasure()">Tentar pegar o tesouro</button>
+                    <button onclick="flee()">Fugir da caverna</button>
+                </div>
+            `;
+        }
+
+        function treasure() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você tentou pegar o tesouro...</h2>
+                <p>A criatura fica furiosa e você é forçado a fugir. Infelizmente, você não consegue escapar a tempo e é capturado!</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+
+        function flee() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decidiu fugir...</h2>
+                <p>Você corre o mais rápido que pode e consegue escapar da caverna. Ao sair, encontra um grupo de exploradores que o ajudam. Você finalmente se sente seguro!</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+    </script>
+
 </body>
 </html>
