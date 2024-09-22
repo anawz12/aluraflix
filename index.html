@@ -1,91 +1,94 @@
-<!DOCTYPE<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Jornada de Clara</title>
+    <title>História Interativa</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #00796b;
-        }
-        h1 {
-            color: #004d40;
-        }
-        h2 {
-            color: #00796b;
-        }
-        p {
-            line-height: 1.6;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .choice { margin: 10px 0; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <h1>A Jornada de Clara</h1>
-    
-    <h2>Capítulo 1: O Chamado da Aventura</h2>
-    <p>Clara era uma jovem sonhadora que vivia em uma pacata aldeia. Todos os dias, ela se sentava à beira do lago, observando os pássaros e imaginando o que haveria além das montanhas. Um dia, enquanto explorava uma caverna próxima, encontrou um antigo mapa escondido sob pedras.</p>
+    <h1>A Aventura na Floresta</h1>
+    <p>Você está em uma floresta misteriosa. À sua frente, há um caminho que se divide em duas direções.</p>
 
-    <h2>Capítulo 2: O Encontro com o Mágico</h2>
-    <p>Animada, Clara decidiu seguir o mapa. Sua jornada a levou a uma floresta densa, onde encontrou um sábio mágico chamado Eldrin. Ele revelou que o mapa levava a um tesouro perdido, capaz de trazer prosperidade à sua aldeia. No entanto, o caminho estava cheio de perigos e desafios.</p>
+    <div id="choice1" class="choice">
+        <button onclick="choose('left')">Ir para a esquerda</button>
+        <button onclick="choose('right')">Ir para a direita</button>
+    </div>
 
-    <h2>Capítulo 3: Os Desafios</h2>
-    <p>Determinada, Clara prosseguiu. Ela enfrentou um rio turbulento, um labirinto de espinhos e até um dragão guardião do tesouro. Com coragem e inteligência, Clara conseguiu superar cada obstáculo, ajudando também outras criaturas pelo caminho, que se tornaram seus aliados.</p>
+    <div id="left" class="hidden">
+        <h2>Você escolheu ir para a esquerda!</h2>
+        <p>Após caminhar por um tempo, você encontra um rio. O que você faz?</p>
+        <div class="choice">
+            <button onclick="choose('swim')">Nadar no rio</button>
+            <button onclick="choose('build')">Construir uma ponte</button>
+        </div>
+    </div>
 
-    <h2>Capítulo 4: O Tesouro e a Lições Aprendidas</h2>
-    <p>Finalmente, Clara chegou ao local indicado no mapa. Ao abrir um baú reluzente, ela encontrou não apenas riquezas, mas também uma semente mágica que poderia revitalizar a terra. Com o tesouro em mãos, Clara retornou à sua aldeia e, usando a semente, trouxe vida nova ao seu lar.</p>
+    <div id="right" class="hidden">
+        <h2>Você escolheu ir para a direita!</h2>
+        <p>Você se depara com uma caverna escura. O que você faz?</p>
+        <div class="choice">
+            <button onclick="choose('enter')">Entrar na caverna</button>
+            <button onclick="choose('explore')">Explorar mais a floresta</button>
+        </div>
+    </div>
 
-    <h2>Capítulo 5: O Retorno</h2>
-    <p>Clara foi recebida como uma heroína. Ela percebeu que sua jornada não era apenas sobre riquezas, mas sobre amizade, coragem e o poder de fazer a diferença. Com o coração cheio de gratidão, Clara sabia que novas aventuras a aguardavam, mas sempre com o espírito de ajudar os outros.</p>
-    
-    <p>Assim, a história de Clara se espalhou pela aldeia, inspirando todos a buscarem suas próprias jornadas.</p>
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Jornada de Clara</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #00796b;
+    <div id="swim" class="hidden">
+        <h2>Você nadou no rio!</h2>
+        <p>Você encontrou um tesouro submerso e ficou rico!</p>
+        <button onclick="reset()">Jogar Novamente</button>
+    </div>
+
+    <div id="build" class="hidden">
+        <h2>Você construiu uma ponte!</h2>
+        <p>Enquanto atravessava, a ponte desabou, e você caiu no rio.</p>
+        <button onclick="reset()">Jogar Novamente</button>
+    </div>
+
+    <div id="enter" class="hidden">
+        <h2>Você entrou na caverna!</h2>
+        <p>Dentro, você encontrou criaturas mágicas e se tornou seu novo líder!</p>
+        <button onclick="reset()">Jogar Novamente</button>
+    </div>
+
+    <div id="explore" class="hidden">
+        <h2>Você decidiu explorar mais a floresta!</h2>
+        <p>Você encontrou uma saída e voltou para casa em segurança.</p>
+        <button onclick="reset()">Jogar Novamente</button>
+    </div>
+
+    <script>
+        function choose(option) {
+            document.getElementById('choice1').classList.add('hidden');
+            document.getElementById('left').classList.add('hidden');
+            document.getElementById('right').classList.add('hidden');
+            document.getElementById('swim').classList.add('hidden');
+            document.getElementById('build').classList.add('hidden');
+            document.getElementById('enter').classList.add('hidden');
+            document.getElementById('explore').classList.add('hidden');
+
+            if (option === 'left') {
+                document.getElementById('left').classList.remove('hidden');
+            } else if (option === 'right') {
+                document.getElementById('right').classList.remove('hidden');
+            } else {
+                document.getElementById(option).classList.remove('hidden');
+            }
         }
-        h1 {
-            color: #004d40;
+
+        function reset() {
+            document.getElementById('choice1').classList.remove('hidden');
+            document.getElementById('left').classList.add('hidden');
+            document.getElementById('right').classList.add('hidden');
+            document.getElementById('swim').classList.add('hidden');
+            document.getElementById('build').classList.add('hidden');
+            document.getElementById('enter').classList.add('hidden');
+            document.getElementById('explore').classList.add('hidden');
         }
-        h2 {
-            color: #00796b;
-        }
-        p {
-            line-height: 1.6;
-        }
-    </style>
-</head>
-<body>
-    <h1>A Jornada de Clara</h1>
-    
-    <h2>Capítulo 1: O Chamado da Aventura</h2>
-    <p>Clara era uma jovem sonhadora que vivia em uma pacata aldeia. Todos os dias, ela se sentava à beira do lago, observando os pássaros e imaginando o que haveria além das montanhas. Um dia, enquanto explorava uma caverna próxima, encontrou um antigo mapa escondido sob pedras.</p>
-
-    <h2>Capítulo 2: O Encontro com o Mágico</h2>
-    <p>Animada, Clara decidiu seguir o mapa. Sua jornada a levou a uma floresta densa, onde encontrou um sábio mágico chamado Eldrin. Ele revelou que o mapa levava a um tesouro perdido, capaz de trazer prosperidade à sua aldeia. No entanto, o caminho estava cheio de perigos e desafios.</p>
-
-    <h2>Capítulo 3: Os Desafios</h2>
-    <p>Determinada, Clara prosseguiu. Ela enfrentou um rio turbulento, um labirinto de espinhos e até um dragão guardião do tesouro. Com coragem e inteligência, Clara conseguiu superar cada obstáculo, ajudando também outras criaturas pelo caminho, que se tornaram seus aliados.</p>
-
-    <h2>Capítulo 4: O Tesouro e a Lições Aprendidas</h2>
-    <p>Finalmente, Clara chegou ao local indicado no mapa. Ao abrir um baú reluzente, ela encontrou não apenas riquezas, mas também uma semente mágica que poderia revitalizar a terra. Com o tesouro em mãos, Clara retornou à sua aldeia e, usando a semente, trouxe vida nova ao seu lar.</p>
-
-    <h2>Capítulo 5: O Retorno</h2>
-    <p>Clara foi recebida como uma heroína. Ela percebeu que sua jornada não era apenas sobre riquezas, mas sobre amizade, coragem e o poder de fazer a diferença. Com o coração cheio de gratidão, Clara sabia que novas aventuras a aguardavam, mas sempre com o espírito de ajudar os outros.</p>
-    
-    <p>Assim, a história de Clara se espalhou pela aldeia, inspirando todos a buscarem suas próprias jornadas.</p>
+    </script>
 </body>
 </html>
