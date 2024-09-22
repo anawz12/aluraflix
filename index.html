@@ -3,191 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aventura na Floresta</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .choice { margin: 10px 0; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>O Tesouro do Castelo Abandonado</title>
 </head>
 <body>
-
-    <h1>Aventura na Floresta</h1>
-    <p>Você está em uma floresta densa. O sol mal consegue iluminar o caminho à sua frente. Você ouve sons estranhos vindo de diferentes direções.</p>
-
-    <div class="choice">
-        <button onclick="path1()">Seguir o som da esquerda</button>
-        <button onclick="path2()">Seguir o som da direita</button>
-    </div>
-
-    <div id="result"></div>
-
-    <script>
-        function path1() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você seguiu o som da esquerda...</h2>
-                <p>Após alguns minutos, você se depara com um lindo lago cercado por flores coloridas. Você pode:</p>
-                <div class="choice">
-                    <button onclick="lakeExplore()">Explorar o lago</button>
-                    <button onclick="lakeRest()">Descansar à beira do lago</button>
-                </div>
-            `;
-        }
-
-        function lakeExplore() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide explorar o lago...</h2>
-                <p>Enquanto você investiga, encontra uma pequena ilha no meio do lago. Ao nadar até lá, descobre um baú misterioso. Você pode:</p>
-                <div class="choice">
-                    <button onclick="openChest()">Abrir o baú</button>
-                    <button onclick="swimBack()">Voltar para a margem</button>
-                </div>
-            `;
-        }
-
-        function lakeRest() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide descansar à beira do lago...</h2>
-                <p>Enquanto relaxa, você vê um grupo de criaturas mágicas dançando na água. Você pode:</p>
-                <div class="choice">
-                    <button onclick="joinDance()">Juntar-se à dança</button>
-                    <button onclick="observeCreatures()">Observar as criaturas</button>
-                </div>
-            `;
-        }
-
-        function openChest() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você abre o baú...</h2>
-                <p>Dentro, encontra uma espada mágica! Com ela em mãos, você sente que pode enfrentar qualquer desafio. Mas ao sair da ilha, uma tempestade se forma.</p>
-                <p>Você pode:</p>
-                <div class="choice">
-                    <button onclick="swordFight()">Lutar contra a tempestade</button>
-                    <button onclick="seekShelter()">Procurar abrigo</button>
-                </div>
-            `;
-        }
-
-        function swimBack() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide voltar para a margem...</h2>
-                <p>Ao chegar, percebe que a floresta está mais calma. Você sente que é hora de continuar sua jornada. Você pode:</p>
-                <div class="choice">
-                    <button onclick="path1Continue()">Seguir o caminho da esquerda novamente</button>
-                    <button onclick="path2Continue()">Explorar o caminho da direita</button>
-                </div>
-            `;
-        }
-
-        function joinDance() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você se junta à dança...</h2>
-                <p>As criaturas o acolhem, e você aprende a magia da floresta. Ao final da dança, elas oferecem a você um presente: uma poção mágica.</p>
-                <p>Você pode:</p>
-                <div class="choice">
-                    <button onclick="usePotion()">Usar a poção</button>
-                    <button onclick="keepPotion()">Guardar a poção para mais tarde</button>
-                </div>
-            `;
-        }
-
-        function observeCreatures() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide observar as criaturas...</h2>
-                <p>Elas parecem felizes e brincalhonas. De repente, uma delas se aproxima e lhe entrega uma flor mágica que brilha à noite.</p>
-                <p>Você pode:</p>
-                <div class="choice">
-                    <button onclick="followFlower()">Seguir a flor mágica</button>
-                    <button onclick="returnPath()">Voltar pelo caminho</button>
-                </div>
-            `;
-        }
-
-        function swordFight() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide lutar contra a tempestade...</h2>
-                <p>A espada mágica brilha intensamente e, com um golpe poderoso, você dispersa as nuvens escuras. A floresta se ilumina e você se sente forte e confiante.</p>
-                <p><strong>Você se torna o guardião da floresta!</strong></p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-
-        function seekShelter() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide procurar abrigo...</h2>
-                <p>Você encontra uma caverna e se esconde lá até a tempestade passar. Ao sair, você descobre uma nova área da floresta.</p>
-                <p>Você pode:</p>
-                <div class="choice">
-                    <button onclick="exploreNewArea()">Explorar a nova área</button>
-                    <button onclick="returnHome()">Voltar para casa</button>
-                </div>
-            `;
-        }
-
-        function path1Continue() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você segue o caminho da esquerda novamente...</h2>
-                <p>O lago agora parece diferente. As criaturas estão dançando novamente. Você pode:</p>
-                <div class="choice">
-                    <button onclick="joinDance()">Juntar-se à dança</button>
-                    <button onclick="exploreNewArea()">Explorar uma nova área</button>
-                </div>
-            `;
-        }
-
-        function path2Continue() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você explora o caminho da direita...</h2>
-                <p>Você encontra uma caverna escura. Dentro, há um tesouro e uma criatura guardiã. Você pode:</p>
-                <div class="choice">
-                    <button onclick="treasureCave()">Tentar pegar o tesouro</button>
-                    <button onclick="sneakPast()">Tentar passar furtivamente</button>
-                </div>
-            `;
-        }
-
-        function exploreNewArea() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você explora a nova área...</h2>
-                <p>Nesta área, você encontra uma árvore gigante que parece mágica. Você pode:</p>
-                <div class="choice">
-                    <button onclick="climbTree()">Subir na árvore</button>
-                    <button onclick="restUnderTree()">Descansar sob a árvore</button>
-                </div>
-            `;
-        }
-
-        function returnHome() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você decide voltar para casa...</h2>
-                <p>A jornada foi longa, mas você aprendeu muito sobre a floresta. Ao voltar, você conta suas histórias para todos.</p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-
-        function followFlower() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você segue a flor mágica...</h2>
-                <p>A flor o leva a um caminho secreto que revela segredos antigos da floresta. Você se torna um verdadeiro conhecedor dos mistérios da natureza.</p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-
-        function treasureCave() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você tenta pegar o tesouro...</h2>
-                <p>A criatura fica furiosa e você precisa lutar! Usando sua habilidade, você consegue derrotá-la e pegar o tesouro. Agora você é rico!</p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-
-        function sneakPast() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você tenta passar furtivamente...</h2>
-                <p>Você consegue passar pela criatura sem ser notado e descobre um lugar cheio de riquezas e segredos. Você se torna um explorador famoso!</p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-    </script>
-
+    <main>
+        <div class="passo ativo" id="passo-0">
+            <p>Você chega ao castelo abandonado, atraído por lendas sobre um tesouro lendário. O vento assobia entre as pedras antigas, e as grandes portas rangem ao serem empurradas. Dentro, o silêncio do vasto saguão coberto de poeira e sombras é quebrado apenas pelos seus passos. À sua frente, há duas escadas: uma à esquerda, subindo em espiral para uma torre, e outra à direita, descendo para as profundezas do castelo. O que você faz?</p>
+            <button data-proximo="1">Sobe a escada para a torre</button>
+            <button data-proximo="2">Desce a escada para o subsolo</button>
+        </div>
+        
+        <div class="passo" id="passo-1">
+            <p>Você sobe os degraus rangentes e sente o vento frio entrando pelas janelas quebradas da torre. No topo, há uma sala cheia de livros antigos e um grande espelho no centro. Você vê duas portas à sua frente. Qual você escolhe?</p>
+            <button data-proximo="3">Porta de madeira</button>
+            <button data-proximo="4">Porta de ferro</button>
+        </div>
+        
+        <div class="passo" id="passo-2">
+            <p>O ar fica pesado e úmido à medida que você desce para as profundezas. A escuridão toma conta do lugar, até que você chega a um salão vasto, onde uma estátua de um cavaleiro guarda duas portas: uma de madeira e outra de ferro. O que você faz?</p>
+            <button data-proximo="5">Porta de madeira</button>
+            <button data-proximo="6">Porta de ferro</button>
+        </div>
+        
+        <div class="passo" id="passo-3">
+            <p>Você entra em uma biblioteca antiga e empoeirada, cheia de livros velhos. No centro, uma vela ilumina um livro aberto sobre uma mesa. Ao lado do livro, há um mapa. O que você faz?</p>
+            <button data-proximo="7">Pega o livro</button>
+            <button data-proximo="8">Pega o mapa</button>
+        </div>
+        
+        <div class="passo" id="passo-4">
+            <p>Você entra em uma sala escura com armas antigas penduradas nas paredes. No centro, há uma armadura reluzente com uma espada ao lado. O que você faz?</p>
+            <button data-proximo="9">Veste a armadura</button>
+            <button data-proximo="10">Explora a sala antes</button>
+        </div>
+        
+        <div class="passo" id="passo-5">
+            <p>O corredor estreito o leva a uma caverna subterrânea, onde cristais brilhantes iluminam o ambiente. No centro da caverna, um pedestal guarda uma coroa dourada. O que você faz?</p>
+            <button data-proximo="11">Pega a coroa</button>
+            <button data-proximo="12">Examina o ambiente</button>
+        </div>
+        
+        <div class="passo" id="passo-6">
+            <p>Você entra em uma sala de tesouro cheia de moedas de ouro e joias. No centro da sala, um baú trancado parece chamar sua atenção. O que você faz?</p>
+            <button data-proximo="13">Abre o baú</button>
+            <button data-proximo="14">Explora a sala antes</button>
+        </div>
+        
+        <div class="passo" id="passo-7">
+            <p>Ao pegar o livro, você descobre informações valiosas sobre o castelo e seu tesouro. O chão começa a tremer e uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="15">Segue pela passagem</button>
+            <button data-proximo="16">Explora o local onde você está</button>
+        </div>
+        
+        <div class="passo" id="passo-8">
+            <p>Ao pegar o mapa, você encontra o caminho para o tesouro perdido. Uma nova passagem se abre diante de você. O que você faz?</p>
+            <button data-proximo="17">Segue pela passagem</button>
+            <button data-proximo="18">Explora o local onde você está</button>
+        </div>
+        
+        <div class="passo" id="passo-9">
+            <p>Você veste a armadura, e uma energia mágica percorre seu corpo. De repente, o chão começa a tremer e uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="19">Segue pela passagem</button>
+            <button data-proximo="20">Explora o local onde você está</button>
+        </div>
+        
+        <div class="passo" id="passo-10">
+            <p>Você explora a sala e encontra inscrições antigas que alertam sobre a maldição da armadura. De repente, uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="21">Segue pela passagem</button>
+            <button data-proximo="22">Ignora a passagem e continua explorando</button>
+        </div>
+        
+        <div class="passo" id="passo-11">
+            <p>Ao pegar a coroa, o chão começa a tremer e uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="23">Segue pela passagem</button>
+            <button data-proximo="24">Explora o local onde você está</button>
+        </div>
+        
+        <div class="passo" id="passo-12">
+            <p>Você examina o ambiente e encontra inscrições que revelam a maldição da coroa. Uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="25">Segue pela passagem</button>
+            <button data-proximo="26">Ignora a passagem e continua explorando</button>
+        </div>
+        
+        <div class="passo" id="passo-13">
+            <p>Ao abrir o baú, você encontra um pergaminho que descreve como controlar o poder do cristal mágico que você encontrou anteriormente. O que você faz?</p>
+            <button data-proximo="27">Toca o cristal</button>
+            <button data-proximo="28">Fica parado tentando entender o que está acontecendo</button>
+        </div>
+        
+        <div class="passo" id="passo-14">
+            <p>Você explora a sala e encontra inscrições que revelam a maldição do tesouro. Uma nova passagem é revelada. O que você faz?</p>
+            <button data-proximo="29">Segue pela passagem</button>
+            <button data-proximo="30">Ignora a passagem e continua explorando</button>
+        </div>
+        
+        <div class="passo" id="passo-15">
+            <p>A passagem leva a uma nova área oculta do castelo. As paredes estão cheias de runas antigas que brilham fracamente. O que você faz?</p>
+            <button data-proximo="31">Explora a nova área</button>
+            <button data-proximo="32">Volta para a sala anterior</button>
+        </div>
+        
+        <div class="passo" id="passo-16">
+            <p>Ao explorar o local, você encontra uma pista sobre o verdadeiro objetivo do castelo. O que você faz?</p>
+            <button data-proximo="33">Pega o objeto após compreender os segredos</button>
+            <button data-proximo="34">Ignora o objeto e segue em frente</button>
+        </div>
+        
+        <div class="passo" id="passo-27">
+            <p>Ao tocar o cristal, você é envolvido por uma luz intensa e, em um piscar de olhos, é transportado para uma torre alta, com vista para o castelo inteiro. No centro da sala, você encontra um espelho antigo. Ele não reflete sua imagem, mas mostra uma sala oculta no castelo. O que você faz?</p>
+            <button data-proximo="35">Procura a sala oculta</button>
+            <button data-proximo="36">Ignora o espelho e continua explorando</button>
+        </div>
+        <div class="passo" id="passo-28">
+            <p>O cristal continua a pulsar, e você sente o ambiente ao seu redor mudando lentamente. Algo grande está para acontecer. O que você faz?</p>
+            <button data-proximo="37">Toca o cristal</button>
+            <button data-proximo="38">Fica parado observando</button>
+        </div>
+        
+        <div class="passo" id="passo-35">
+            <p>Usando as informações do espelho, você começa a explorar o castelo em busca da sala que ele revelou. O espelho parece estar guiando você.</p>
+            <button data-proximo="39">Entra na sala oculta</button>
+        </div>
+        
+        <div class="passo" id="passo-36">
+            <p>Desconfiado do espelho, você decide ignorá-lo e explora a torre, na esperança de encontrar outra pista. No entanto, a sensação de estar sendo observado permanece.</p>
+            <button data-proximo="40">Continua a explorar a torre</button>
+        </div>
+        
+        <div class="passo" id="passo-39">
+            <p>Você encontra um baú trancado que contém algo importante. O que você faz?</p>
+            <button data-proximo="41">Abre o baú</button>
+            <button data-proximo="42">Deixa o baú fechado</button>
+        </div>
+        
+        <div class="passo" id="passo-41">
+            <p>Usando uma chave escondida, você abre o baú e encontra um pergaminho que descreve como controlar o poder do cristal que você encontrou anteriormente. Com esse conhecimento, você se prepara para o confronto final.</p>
+            <button data-proximo="43">Seguir</button>
+        </div>
+        
+        <div class="passo" id="passo-43">
+            <p>Uma presença sombria surge diante de você. O guardião final do castelo se revela. O que você faz?</p>
+            <button data-proximo="44">Luta com a espada ou usa o cristal</button>
+            <button data-proximo="45">Tenta negociar ou fugir</button>
+        </div>
+        
+        <div class="passo" id="passo-44">
+            <p>Armado com a espada ou o cristal, você enfrenta o guardião. A batalha é intensa, mas com a combinação de coragem e poder, você consegue derrotá-lo.</p>
+            <button data-proximo="46">Finalizar</button>
+        </div>
+        
+        <div class="passo" id="passo-45">
+            <p>Ao invés de lutar, você tenta usar o conhecimento do pergaminho para controlar o guardião ou busca uma maneira de escapar do confronto.</p>
+            <button data-proximo="46">Finalizar</button>
+        </div>
+        
+        <div class="passo" id="passo-46">
+            <p>O castelo agora está livre de sua maldição. Com o poder do cristal, da coroa e da espada, o destino do castelo está em suas mãos. O que você faz?</p>
+            <button data-proximo="47">Assume o controle do castelo</button>
+            <button data-proximo="48">Deixa o castelo para trás</button>
+        </div>
+        
+        <div class="passo" id="passo-47">
+            <p>Com a vitória em suas mãos, você se torna o novo guardião do castelo e de seus segredos. Seu nome será eternamente ligado à lenda.</p>
+            <h2>Fim</h2>
+        </div>
+        
+        <div class="passo" id="passo-48">
+            <p>Mesmo com todo o poder em suas mãos, você decide que essa jornada foi suficiente. Você sai do castelo, deixando seus tesouros e segredos para trás.</p>
+            <h2>Fim</h2>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
