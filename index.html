@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uma Aventura Interativa</title>
+    <title>Aventura na Floresta</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .choice { margin: 10px 0; }
@@ -25,34 +25,165 @@
         function path1() {
             document.getElementById("result").innerHTML = `
                 <h2>Você seguiu o som da esquerda...</h2>
-                <p>Após alguns minutos, você se depara com um lindo lago cercado por flores coloridas. Você decide descansar e aproveitar a beleza ao seu redor.</p>
-                <p><strong>Fim da aventura!</strong></p>
-            `;
-        }
-
-        function path2() {
-            document.getElementById("result").innerHTML = `
-                <h2>Você seguiu o som da direita...</h2>
-                <p>Você encontra uma caverna escura. Ao entrar, descobre um tesouro escondido! Mas, de repente, uma criatura aparece e você precisa decidir rapidamente.</p>
+                <p>Após alguns minutos, você se depara com um lindo lago cercado por flores coloridas. Você pode:</p>
                 <div class="choice">
-                    <button onclick="treasure()">Tentar pegar o tesouro</button>
-                    <button onclick="flee()">Fugir da caverna</button>
+                    <button onclick="lakeExplore()">Explorar o lago</button>
+                    <button onclick="lakeRest()">Descansar à beira do lago</button>
                 </div>
             `;
         }
 
-        function treasure() {
+        function lakeExplore() {
             document.getElementById("result").innerHTML = `
-                <h2>Você tentou pegar o tesouro...</h2>
-                <p>A criatura fica furiosa e você é forçado a fugir. Infelizmente, você não consegue escapar a tempo e é capturado!</p>
+                <h2>Você decide explorar o lago...</h2>
+                <p>Enquanto você investiga, encontra uma pequena ilha no meio do lago. Ao nadar até lá, descobre um baú misterioso. Você pode:</p>
+                <div class="choice">
+                    <button onclick="openChest()">Abrir o baú</button>
+                    <button onclick="swimBack()">Voltar para a margem</button>
+                </div>
+            `;
+        }
+
+        function lakeRest() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decide descansar à beira do lago...</h2>
+                <p>Enquanto relaxa, você vê um grupo de criaturas mágicas dançando na água. Você pode:</p>
+                <div class="choice">
+                    <button onclick="joinDance()">Juntar-se à dança</button>
+                    <button onclick="observeCreatures()">Observar as criaturas</button>
+                </div>
+            `;
+        }
+
+        function openChest() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você abre o baú...</h2>
+                <p>Dentro, encontra uma espada mágica! Com ela em mãos, você sente que pode enfrentar qualquer desafio. Mas ao sair da ilha, uma tempestade se forma.</p>
+                <p>Você pode:</p>
+                <div class="choice">
+                    <button onclick="swordFight()">Lutar contra a tempestade</button>
+                    <button onclick="seekShelter()">Procurar abrigo</button>
+                </div>
+            `;
+        }
+
+        function swimBack() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decide voltar para a margem...</h2>
+                <p>Ao chegar, percebe que a floresta está mais calma. Você sente que é hora de continuar sua jornada. Você pode:</p>
+                <div class="choice">
+                    <button onclick="path1Continue()">Seguir o caminho da esquerda novamente</button>
+                    <button onclick="path2Continue()">Explorar o caminho da direita</button>
+                </div>
+            `;
+        }
+
+        function joinDance() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você se junta à dança...</h2>
+                <p>As criaturas o acolhem, e você aprende a magia da floresta. Ao final da dança, elas oferecem a você um presente: uma poção mágica.</p>
+                <p>Você pode:</p>
+                <div class="choice">
+                    <button onclick="usePotion()">Usar a poção</button>
+                    <button onclick="keepPotion()">Guardar a poção para mais tarde</button>
+                </div>
+            `;
+        }
+
+        function observeCreatures() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decide observar as criaturas...</h2>
+                <p>Elas parecem felizes e brincalhonas. De repente, uma delas se aproxima e lhe entrega uma flor mágica que brilha à noite.</p>
+                <p>Você pode:</p>
+                <div class="choice">
+                    <button onclick="followFlower()">Seguir a flor mágica</button>
+                    <button onclick="returnPath()">Voltar pelo caminho</button>
+                </div>
+            `;
+        }
+
+        function swordFight() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decide lutar contra a tempestade...</h2>
+                <p>A espada mágica brilha intensamente e, com um golpe poderoso, você dispersa as nuvens escuras. A floresta se ilumina e você se sente forte e confiante.</p>
+                <p><strong>Você se torna o guardião da floresta!</strong></p>
                 <p><strong>Fim da aventura!</strong></p>
             `;
         }
 
-        function flee() {
+        function seekShelter() {
             document.getElementById("result").innerHTML = `
-                <h2>Você decidiu fugir...</h2>
-                <p>Você corre o mais rápido que pode e consegue escapar da caverna. Ao sair, encontra um grupo de exploradores que o ajudam. Você finalmente se sente seguro!</p>
+                <h2>Você decide procurar abrigo...</h2>
+                <p>Você encontra uma caverna e se esconde lá até a tempestade passar. Ao sair, você descobre uma nova área da floresta.</p>
+                <p>Você pode:</p>
+                <div class="choice">
+                    <button onclick="exploreNewArea()">Explorar a nova área</button>
+                    <button onclick="returnHome()">Voltar para casa</button>
+                </div>
+            `;
+        }
+
+        function path1Continue() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você segue o caminho da esquerda novamente...</h2>
+                <p>O lago agora parece diferente. As criaturas estão dançando novamente. Você pode:</p>
+                <div class="choice">
+                    <button onclick="joinDance()">Juntar-se à dança</button>
+                    <button onclick="exploreNewArea()">Explorar uma nova área</button>
+                </div>
+            `;
+        }
+
+        function path2Continue() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você explora o caminho da direita...</h2>
+                <p>Você encontra uma caverna escura. Dentro, há um tesouro e uma criatura guardiã. Você pode:</p>
+                <div class="choice">
+                    <button onclick="treasureCave()">Tentar pegar o tesouro</button>
+                    <button onclick="sneakPast()">Tentar passar furtivamente</button>
+                </div>
+            `;
+        }
+
+        function exploreNewArea() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você explora a nova área...</h2>
+                <p>Nesta área, você encontra uma árvore gigante que parece mágica. Você pode:</p>
+                <div class="choice">
+                    <button onclick="climbTree()">Subir na árvore</button>
+                    <button onclick="restUnderTree()">Descansar sob a árvore</button>
+                </div>
+            `;
+        }
+
+        function returnHome() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você decide voltar para casa...</h2>
+                <p>A jornada foi longa, mas você aprendeu muito sobre a floresta. Ao voltar, você conta suas histórias para todos.</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+
+        function followFlower() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você segue a flor mágica...</h2>
+                <p>A flor o leva a um caminho secreto que revela segredos antigos da floresta. Você se torna um verdadeiro conhecedor dos mistérios da natureza.</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+
+        function treasureCave() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você tenta pegar o tesouro...</h2>
+                <p>A criatura fica furiosa e você precisa lutar! Usando sua habilidade, você consegue derrotá-la e pegar o tesouro. Agora você é rico!</p>
+                <p><strong>Fim da aventura!</strong></p>
+            `;
+        }
+
+        function sneakPast() {
+            document.getElementById("result").innerHTML = `
+                <h2>Você tenta passar furtivamente...</h2>
+                <p>Você consegue passar pela criatura sem ser notado e descobre um lugar cheio de riquezas e segredos. Você se torna um explorador famoso!</p>
                 <p><strong>Fim da aventura!</strong></p>
             `;
         }
