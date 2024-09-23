@@ -1,23 +1,23 @@
 body {
-    background-color: #1D4221;
+    background-color: rgb(144, 8, 8);
     color: white;
-    font-family: "Bai Jamjuree", sans-serif;
+    font-family: "Playfair Display", serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 700px;
-    margin: 0;
+    margin: 0px;
 }
 
 button {
-    background-color: #64A712;
+    background-color: rgb(223, 25, 25);
     color: white;
-    font-family: "Bai Jamjuree", sans-serif;
+    font-family: "Playfair Display", serif;
 }
 
 .passo {
-    display: nome;
-} 
+    display: none;
+}
 
 .passo.ativo {
     display: block;
@@ -28,5 +28,5 @@ main{
     max-width: 90%;
 }
 img{
-    max-width: 80%
+    max-width: 80%;
 }
