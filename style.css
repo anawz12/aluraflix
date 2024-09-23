@@ -14,3 +14,19 @@ button {
     color: white;
     font-family: "Bai Jamjuree", sans-serif;
 }
+
+.passo {
+    display: nome;
+} 
+
+.passo.ativo {
+    display: blok;
+}
+
+main{
+    text-align:center;
+    max-width: 90%;
+}
+img{
+    max-width: 80%
+}
