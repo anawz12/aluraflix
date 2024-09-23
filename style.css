@@ -1,18 +1,18 @@
 body {
-    background-color: rgb(144, 8, 8);
+    background-color: #1D4221;
     color: white;
-    font-family: "Playfair Display", serif;
+    font-family: "Bai Jamjuree", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 700px;
-    margin: 0px;
+    margin: 0;
 }
 
 button {
-    background-color: rgb(223, 25, 25);
+    background-color: #64A712;
     color: white;
-    font-family: "Playfair Display", serif;
+    font-family: "Bai Jamjuree", sans-serif;
 }
 
 .passo {
@@ -20,13 +20,14 @@ button {
 }
 
 .passo.ativo {
-    display: block;
+    display:block;
 }
 
-main{
-    text-align:center;
+main {
+    text-align: center;
     max-width: 90%;
 }
-img{
-    max-width: 80%;
+
+img {
+    max-width: 90%;
 }
